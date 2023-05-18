@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Doctor, Patient, Record
 
 
+
 class RecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Record
