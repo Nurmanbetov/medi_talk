@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from .models import Doctor, Patient, Record
+from .models import Patient, Record, ConversationAI
 
 
+class PatientSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Patient
+        fields = 'first_name'
 
 class RecordSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,3 +21,12 @@ class PatientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Patient
         fields = '__all__'
+    
+
+class ConversationSerializer(serializers.ModelSerializer):
+
+    user = PatientSerializer()
+
+    class Meta:
+        model = ConversationAI
+        fields = ['patient', 'text']

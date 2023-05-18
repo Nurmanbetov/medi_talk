@@ -41,3 +41,10 @@ class Record(models.Model):
     def __str__(self) -> str:
         return self.subject
 
+
+class ConversationAI(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    text = models.TextField()
+    conversation_date = models.DateTimeField(verbose_name="Conv start", default=timezone.now)
+
+    

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Doctor, Patient, Record
+from .models import Doctor, Patient, Record, ConversationAI
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 
@@ -25,3 +25,4 @@ class CustomUserAdmin(UserAdmin):
 admin.site.register(Doctor, CustomUserAdmin)
 admin.site.register(Patient, CustomUserAdmin)
 admin.site.register(Record)
+admin.site.register(ConversationAI)
