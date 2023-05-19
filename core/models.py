@@ -6,6 +6,9 @@ from django.utils import timezone
 
 
 class Patient(User):
+
+    """Class Patient for medical use"""
+
     phone_number = PhoneField(blank=True, help_text="Contact phone number")
     joining_date = models.DateTimeField(verbose_name="Date of joining", default=timezone.now)
 
@@ -18,6 +21,9 @@ class Patient(User):
 
 
 class Doctor(User):
+
+    """Class Doctor for medical use"""
+
     phone_number = PhoneField(blank=True, help_text="Contact phone number")
     joining_date = models.DateTimeField(verbose_name="Date of joining", default=timezone.now)
 
@@ -30,6 +36,9 @@ class Doctor(User):
 
     
 class Record(models.Model):
+
+    """Class for medical use to record all data about patient."""
+
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     subject = models.CharField(verbose_name='Subject', max_length=255)
@@ -43,8 +52,10 @@ class Record(models.Model):
 
 
 class ConversationAI(models.Model):
+
+    """Class ConverstionAI for recording all char data between ChatGPT and patient"""
+
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     text = models.TextField()
     conversation_date = models.DateTimeField(verbose_name="Conv start", default=timezone.now)
 
-    
