@@ -10,7 +10,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import openai, json
 
-openai.api_key = "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"
+
 
 
 
